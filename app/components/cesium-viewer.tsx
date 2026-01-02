@@ -7,8 +7,8 @@ export default function CesiumComponent() {
   const cesiumViewer = useRef<Viewer | null>(null);
   const cesiumContainerRef = React.useRef<HTMLDivElement>(null);
   const initializeCesium = async () => {
-    // Cấu hình Cesium Ion nếu cần
-    Ion.defaultAccessToken = "your_cesium_ion_access_token_here";
+    // Your CesiumJS access token (loaded from env)
+    Ion.defaultAccessToken = process.env.NEXT_PUBLIC_CESIUM_TOKEN || "";
 
     if (cesiumContainerRef.current) {
       cesiumViewer.current = new Viewer(cesiumContainerRef.current, {
